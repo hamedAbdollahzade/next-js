@@ -4,7 +4,10 @@ const SingleArticle = () => {
   // slug OR Catch All Routes
 
   const route = useRouter();
-  const { slug = [] } = route.query;
+
+  // const { slug = [] } = route.query; 
+  const slug = route.query.slug || [];
+
   console.log(slug);
 
   if (slug.length > 2) {
