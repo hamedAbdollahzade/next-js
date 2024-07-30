@@ -14,6 +14,10 @@ const Courses = () => {
       <ul>
         {courses.map((course) => (
           <li key={course.id}>
+            {/* <Link replace={true} href={`/courses/${course.shortname}`}>
+              {course.title}
+            </Link>  default => replace=false */}
+            
             <Link href={`/courses/${course.shortname}`}>{course.title}</Link>
           </li>
         ))}
