@@ -17,8 +17,20 @@ const Courses = () => {
             {/* <Link replace={true} href={`/courses/${course.shortname}`}>
               {course.title}
             </Link>  default => replace=false */}
-            
-            <Link href={`/courses/${course.shortname}`}>{course.title}</Link>
+
+            {/* <Link href={`/courses/${course.shortname}`}>{course.title}</Link> */}
+
+            {/* برای خوانایی بیشتر میتونیم از این مدل ابجکت استفاده کنیم  */}
+            <Link
+              href={{
+                pathname: "/courses/[shortName]",
+                query: {
+                  shortName: course.shortname,
+                },
+              }}
+            >
+              {course.title}
+            </Link>
           </li>
         ))}
       </ul>
