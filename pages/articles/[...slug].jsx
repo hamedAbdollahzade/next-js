@@ -1,6 +1,8 @@
 import { useRouter } from "next/router";
 
 const SingleArticle = () => {
+  // slug OR Catch All Routes
+
   const route = useRouter();
   const { slug = [] } = route.query;
   console.log(slug);
