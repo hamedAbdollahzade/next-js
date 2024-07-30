@@ -6,9 +6,14 @@ export default function Home() {
 
   const redirect = () => {
     // route.push("/courses/pwa");
+    //  میتونیم این مدلی هم بنویسیم
+    route.push({
+      pathname: "/courses/[shortName]",
+      query: { shortName: "react" },
+    });
 
     // اگه بخوایم صفحه یا روت بعدی رو در هیستوری مرورگر جایگزین کرده باشیم از این استفاده میکنیم
-    route.replace("/courses/reactjs");
+    // route.replace("/courses/reactjs");
   };
 
   return (
