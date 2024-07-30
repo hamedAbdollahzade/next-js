@@ -5,7 +5,10 @@ export default function Home() {
   const route = useRouter();
 
   const redirect = () => {
-    route.push("/courses/pwa");
+    // route.push("/courses/pwa");
+
+    // اگه بخوایم صفحه یا روت بعدی رو در هیستوری مرورگر جایگزین کرده باشیم از این استفاده میکنیم
+    route.replace("/courses/reactjs");
   };
 
   return (
