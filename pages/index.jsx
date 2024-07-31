@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
+import styles from "../styles/home.module.css";
 
 export default function Home() {
   const route = useRouter();
@@ -18,7 +19,7 @@ export default function Home() {
 
   return (
     <>
-      <h1>Home Page </h1>
+      <h1 className={styles.title}> Home Page </h1>
       <hr />
       <ul>
         <li>

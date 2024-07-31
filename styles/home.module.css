@@ -1,0 +1,9 @@
+/*? CSS Modules
+Next.js has built-in support for CSS Modules using the .module.css extension.
+CSS Modules locally scope CSS by automatically creating a unique class name.
+This allows you to use the same class name in different files without worrying about collisions.
+This behavior makes CSS Modules the ideal way to include component-level CSS. */
+
+.title {
+  color: green;
+}
