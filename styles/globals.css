@@ -10,7 +10,9 @@ Sass: A popular CSS preprocessor that extends CSS with features like variables, 
 
 CSS-in-JS: Embed CSS directly in your JavaScript components, enabling dynamic and scoped styling. */
 
-
+/*! اسم این فایل هرچیزی میتونه باشه فقط سی اس اس ماژول نباشه  */
+/*! فقط داخل _app.js میتونیم ایمپورت کنیم */
+/*! میتونیم به تمامی کامپوننت ها اینجااستایل بدیم چون همشون از داخل _app.js گذر میکنن */
 
 body {
   display: flex;
