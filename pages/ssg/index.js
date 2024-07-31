@@ -18,6 +18,7 @@ export async function getStaticProps() {
   console.log("function getStaticProps is Runnig ...");
 
   return {
+    // از این پراپس میتونیم داخل همین کامپوننت در ورودی دریافت کنیم
     props: {
       title: "تست عنوان",
       body: "بدنه تست",
