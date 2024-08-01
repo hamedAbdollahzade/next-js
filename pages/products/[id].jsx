@@ -3,10 +3,28 @@ const Product = ({ data }) => {
 };
 
 export default Product;
+
+export async function getStaticPaths() {
+  return {
+    paths: [
+      { params: { id: "1" } },
+      { params: { id: "2" } },
+      { params: { id: "3" } },
+      { params: { id: "4" } },
+      { params: { id: "5" } },
+      { params: { id: "6" } },
+    ],
+    fallback: false,
+  };
+}
+
 export async function getStaticProps(context) {
+  // اینجا چون داینامیک روت داریم و نکس میخواد بدونه چندتا صفحه باید بسازه نیازه از یک متد دیگه استفاده کنیم
+  //! Error: getStaticPaths is required for dynamic SSG pages and is missing for '/products/[id]'.
+
   const productId = context.params.id;
   const res = await fetch(`https://fakestoreapi.com/products/${productId}`);
-  const data = res.json();
+  const data = await res.json();
 
   return {
     props: {
