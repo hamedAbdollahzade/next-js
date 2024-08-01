@@ -5,17 +5,29 @@ const Product = ({ data }) => {
 export default Product;
 
 export async function getStaticPaths() {
+  const res = await fetch(`https://fakestoreapi.com/products`);
+  const data = await res.json();
+
+  const paths = data.slice(0, 5).map((product) => {
+    return { params: { id: String(product.id) } };
+  });
+
   return {
-    paths: [
-      { params: { id: "1" } },
-      { params: { id: "2" } },
-      { params: { id: "3" } },
-      { params: { id: "4" } },
-      { params: { id: "5" } },
-      { params: { id: "6" } },
-    ],
+    paths: paths,
     fallback: false,
   };
+  // -----------------VS---------------------
+  //   return {
+  //     paths: [
+  //       { params: { id: "1" } },
+  //       { params: { id: "2" } },
+  //       { params: { id: "3" } },
+  //       { params: { id: "4" } },
+  //       { params: { id: "5" } },
+  //       { params: { id: "6" } },
+  //     ],
+  //     fallback: false,
+  //   };
 }
 
 export async function getStaticProps(context) {
