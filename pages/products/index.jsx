@@ -21,9 +21,19 @@ export default Products;
 export async function getStaticProps() {
   const res = await fetch("https://fakestoreapi.com/products?limit=5");
   const data = await res?.json();
+
+  // Only Run Server
   //   console.log(data);
+
+  // Run Node.js Code
+  console.log("DirectName ==>", __dirname);
 
   return {
     props: { data },
   };
+
+  //? NOTE :
+  //! Security
+  // getStaticProps Only use in Pages Folder
+  // return Object (Props Property)
 }
