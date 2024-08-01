@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const Products = ({ data }) => {
   return (
     <>
@@ -7,7 +9,9 @@ const Products = ({ data }) => {
       <ul className={"flex flex-col gap-2 bg-slate-200 p-2"}>
         {data.map((item) => (
           <li key={item.id} className={"flex justify-between"}>
-            {item.id} - {item.title}{" "}
+            <Link href={`/products/${item.id}`}>
+              {item.id} - {item.title}{" "}
+            </Link>
             <img src={item.image} alt="image" className={"w-10"} />
           </li>
         ))}
