@@ -1,4 +1,12 @@
+import { useRouter } from "next/router";
+
 const Product = ({ data }) => {
+  const router = useRouter();
+  if (router.isFallback) {
+    // zamani vared in shart mishe k karbar id vared kone ke tu params haye ma nabashe va baraye avalin bar miad safhe ro besaze!
+    return <h1>fallBack page : Please Wait </h1>;
+  }
+
   return <div>Product Title : {data.title}</div>;
 };
 
@@ -14,7 +22,10 @@ export async function getStaticPaths() {
 
   return {
     paths: paths,
-    fallback: false,
+    fallback: true, //false || True || "blocking"
+    // فرقی نمیکنه فال بک چی باشه همیشه اون پارامز هایی ک تعیین کردیم ساخته میشن صفحاتش
+    // fallback : false => age id dg e barat umad una ro talash nakon fetch koni
+    // fallback : true => age id dg e karbar ferestad boro va page uno besaz ke inja chon yekam tul mikeshe dar had 1 sanie mitunim if bezarim modiriatesh konim !
   };
   // -----------------VS---------------------
   //   return {
