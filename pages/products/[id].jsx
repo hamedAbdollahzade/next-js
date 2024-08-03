@@ -27,6 +27,7 @@ export async function getStaticPaths() {
     // فرقی نمیکنه فال بک چی باشه همیشه اون پارامز هایی ک تعیین کردیم ساخته میشن صفحاتش
     // fallback : false => age id dg e barat umad una ro talash nakon fetch koni
     // fallback : true => age id dg e karbar ferestad boro va page uno besaz ke inja chon yekam tul mikeshe dar had 1 sanie mitunim if bezarim modiriatesh konim !
+    // fallback : "blocking" => dar in halat ta data safhe jadid biad tu hamun safhe e ke hastim block mishe safhe 
   };
   // -----------------VS---------------------
   //   return {
