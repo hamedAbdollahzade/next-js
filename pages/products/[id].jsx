@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 import { useRouter } from "next/router";
 
 const Product = ({ data }) => {
@@ -47,11 +48,20 @@ export async function getStaticProps(context) {
 
   const productId = context.params.id;
   const res = await fetch(`https://fakestoreapi.com/products/${productId}`);
+
+  if (res.status !== "200") {
+    // اینجوری اگه ریسپانس درست نباشه مارو هدایت میکنه به صفحه نات فوند :D
+    //  اگه ما اینو بررسی نکنیم یه همچین خطایی میده در زمانی ک کاربر ایدی بفرسته ک روی سرور اون ایدی وجود نداره Error: Failed to load static props
+    return { notFound: true };
+  }
+
   const data = await res.json();
 
   return {
     props: {
       data,
     },
+    // notFound: true, // این اگه ترو باشه اولویتش بالاتره از پراپس و درصورتی ک صفحه وجود داشته باشه هم ارور 404 میده
+    // برای همین میایم بالاتر جور دیگه ای ازش بهره میبریم :D
   };
 }
