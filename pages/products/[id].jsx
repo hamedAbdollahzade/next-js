@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { useRouter } from "next/router";
 
 const Product = ({ data }) => {
@@ -52,7 +52,11 @@ export async function getStaticProps(context) {
   if (res.status !== "200") {
     // اینجوری اگه ریسپانس درست نباشه مارو هدایت میکنه به صفحه نات فوند :D
     //  اگه ما اینو بررسی نکنیم یه همچین خطایی میده در زمانی ک کاربر ایدی بفرسته ک روی سرور اون ایدی وجود نداره Error: Failed to load static props
-    return { notFound: true };
+    return {
+      // notFound: true,
+      redirect: { destination: "/" },
+      // اگه بخوایم به دایرکشن خواستی کاربر رو هدایت کنیم
+    };
   }
 
   const data = await res.json();
