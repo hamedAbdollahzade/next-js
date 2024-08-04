@@ -26,6 +26,8 @@ export async function getStaticProps() {
   const res = await fetch("https://fakestoreapi.com/products?limit=5");
   const data = await res?.json();
 
+  console.log("getStaticProps ==> ISR");
+
   // Only Run Server
   //   console.log(data);
 
