@@ -16,7 +16,11 @@ const SsrPage = ({ posts }) => {
 
 export default SsrPage;
 export async function getServerSideProps(context) {
-  const { params, req: request, res: response } = context;
+  const { params, req: request, res: response, query } = context;
+
+
+  console.log("Query Params  ==> ", query);
+
   console.log("request ======>", request.cookies);
   // Node js Code
   console.log("SSR => getServerSideProps"); // Server - Api Key - Cookie - Token
