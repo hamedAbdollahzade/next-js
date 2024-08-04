@@ -32,7 +32,7 @@ export async function getServerSideProps(context) {
 
   return {
     props: {
-      posts: posts.slice(0, 8),
+      posts,
     },
   };
 }
