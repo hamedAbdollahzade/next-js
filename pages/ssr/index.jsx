@@ -15,10 +15,15 @@ const SsrPage = ({ posts }) => {
 };
 
 export default SsrPage;
-export async function getServerSideProps() {
+export async function getServerSideProps(context) {
+  const { params, req } = context;
+  // Node js Code
+  console.log("SSR => getServerSideProps"); // Server - Api Key - Cookie - Token
+  console.log("Directory ==>" , __dirname)
+
   const res = await fetch("https://jsonplaceholder.typicode.com/posts");
   const posts = await res.json();
-  console.log(res);
+  //   console.log(res);
 
   return {
     props: {
