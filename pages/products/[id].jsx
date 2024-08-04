@@ -27,7 +27,7 @@ export async function getStaticPaths() {
     // فرقی نمیکنه فال بک چی باشه همیشه اون پارامز هایی ک تعیین کردیم ساخته میشن صفحاتش
     // fallback : false => age id dg e barat umad una ro talash nakon fetch koni
     // fallback : true => age id dg e karbar ferestad boro va page uno besaz ke inja chon yekam tul mikeshe dar had 1 sanie mitunim if bezarim modiriatesh konim !
-    // fallback : "blocking" => dar in halat ta data safhe jadid biad tu hamun safhe e ke hastim block mishe safhe 
+    // fallback : "blocking" => dar in halat ta data safhe jadid biad tu hamun safhe e ke hastim block mishe safhe
   };
   // -----------------VS---------------------
   //   return {
@@ -54,8 +54,8 @@ export async function getStaticProps(context) {
     // اینجوری اگه ریسپانس درست نباشه مارو هدایت میکنه به صفحه نات فوند :D
     //  اگه ما اینو بررسی نکنیم یه همچین خطایی میده در زمانی ک کاربر ایدی بفرسته ک روی سرور اون ایدی وجود نداره Error: Failed to load static props
     return {
-      // notFound: true,
-      redirect: { destination: "/" },
+      notFound: true,
+      // redirect: { destination: "/" },
       // اگه بخوایم به دایرکشن خواستی کاربر رو هدایت کنیم
     };
   }
